@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>3 DEFINITIVE WAYS TO MAKE YOUR PYTHON API BETTER</title>
+    <link rel="image_src" href="http://i.imgur.com/LwZh4ju.png" / >
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/freelancer.css" rel="stylesheet">
+    <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:300' rel='stylesheet' type='text/css'>
+    <script src="js/signals.min.js"></script>
+    <script src="js/crossroads.js"></script>
+    <script src="js/routes.js"></script>
+    
+    <meta name="keywords" content="Python, Django, Forms, Validators, IntegerField, Sublcass" />
+    <meta property="og:image" content="http://i.imgur.com/LwZh4ju.png" />
+
+
+    
+    
+</head>
+<body id="page-top" class="index">
+    
+    <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">Damage Control</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                     <li class="dropdown page-scroll">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Projects <span class="caret"></span></a>
+                      <ul class="dropdown-menu" role="menu">
+                        <li><a href="http://tuneout.altervista.org/tune-out/">Tuneout</a></li>
+                        <li><a href="#">AI. You</a></li>
+                        <li class = "disabled"><a href="#">Arsonist Suite</a></li>
+                      </ul>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#blog">Blog</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="../about.html">About</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    
+    <div id = "content" class="blog-content">
+        <div class="row">
+            <div class = "col-md-3 sidebar">
+                <h3>Older Blogs:</h3>
+                <hr>
+                <ul class="list-group">
+                                                            <a href="blog-4.html" class="side-links"><li class="list-group-item side-panel">Those Django Forms Sat Me Down - (4/25/15)</li></a>
+<br>
+                                        <a href="blog-3.html" class="side-links"><li class="list-group-item side-panel">The Data Cowboys - (4/4/15)</li></a>
+                    <br>
+                    
+                    <a href="blog-2.html" class="side-links"><li class="list-group-item side-panel">Squashing the Big Bugs - (2/23/15)</li></a>
+                    <br>
+                    <a href="blog-1.html" class="side-links"><li class="list-group-item side-panel">Worst Programming Language - (2/12/15)</li></a>
+                </ul>
+                <br>
+                 <h3>Share It:</h3>
+                 <hr>
+                <div class="fb-share-button" data-href="http://dmg-control.com/blog/" data-layout="button"></div>
+                <br>
+                <br>
+                <a href="https://twitter.com/share" class="twitter-share-button" data-via="dmg_controlsw" data-size="large">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                <br>
+                <br>
+                <a href="https://twitter.com/dmg_controlsw" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @dmg_controlsw</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+            </div>
+            <div class = "col-md-6">
+                <div class = "page-header blog-post-header">
+                        <h2>3 DEFINITIVE WAYS TO MAKE YOUR PYTHON API BETTER</h2>
+                        <p class = "lead">(5/28/15)</p>
+                        <small>by Kirt Gittens</small>
+                    <hr>
+                    <img src="../img/img5.png" class = "img-responsive" title="Get it? cause Django unchai... nevermind">
+                    <br>
+                    <div class = "blog-post">
+<p>
+                       
+I've seen python libraries lately that could use some tips on the API design. The ideas behind a lot of these developer API's are solid, but the code just doesn't quite feel as strong as it could, so here's a few pointers on how to make every API you write (objectively) better! . 
+</p>
+                        <br>
+                        <blockquote>
+                                1. USE METACLASSES (IN EVERYTHING)
+                        </blockquote>
+                        <br>
+<p>
+		Screw Tim Peters, you need metaclasses in everything! It doesn't matter if you could have done it another way without adding complexity for the end users, You wanna be in that special 1% of programmers right? So you'd better use a metaclass. When people can't figure out what your code does by looking at it, you want to be able to laugh condescendingly and tell them "it's magic" without explaining anything. If they we're REAL python developers they'd understand.
+</p>
+                        <br>
+                        
+                          <blockquote>
+                                2. OVERRIDE PYTHON BUILTINS
+                        </blockquote>
+                        <p>
+		What did getattr do? who cares it was probably dumb. Re-Write it! make your code do something random every time you call setattr or getattr. This is how you write magic code! Python core clearly doesn't support your super specific use case so make it work for you! You should be contributing to the core, forget what Raymond may have said!
+                            </p>
+<blockquote>
+                        3. PROGRAM FUNCTIONALLY
+
+                        </blockquote>
+                            <p>	You wanna be a better programmer? Write code that goes against the paradigm of your own programming language that will inevitably make you want to kill yourself!
+<br>
+                                </p>
+<blockquote><i>okay okay you got me, I'm done</i></blockquote> <br>
+
+                        <p>
+okay okay I'm done, but seriously there's something to be said for doing your best to reduce complexity for both the end developer and in the API/framework itself. Sure you want do to things as efficient as possible. Use whatever tools the language gives you to the extent that they facilitate something that would otherwise be tedious or cumbersome. But I'd challenge developers to take a reductive use approach instead of attempting to apply the advanced features of the language wherever you can. Don't un-necessarily obsfucate anything. One of the amazing things about python as a language is how stupidly easy it is to read and understand (in comparison to seeing 8 million function templates and ```typdef struct``` 's ') so just because you can think of a use case for something, doesn't always mean that it'll make your code better or even more importantly, more beautiful. That's not to say there aren't definitive places where using descriptors and metaclasses turn out to be the best option, but I think upon deeper investigation, the actual amount of such places is unbelivably few.
+                            </p>
+                        <br>
+<p>
+I think keeping the principle of maintaining beautiful code should extend down to your API as well. The ease with which a new developer can interpret and get understanding about what you've written, is a good thing, not a bad thing!
+</p>
+                        <br>
+                        <p>
+But maybe I'm wrong. You should probably only use python in the bios for CFFI extensions written in Rust, right?
+<br>
+<br>
+
+<small>~ishygddt</small>
+                        </p>
+                        
+<button class = "btn btn-primary btn-large" onclick="window.location='blog-4.html'">Previous Blog</button>
+		
+                
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="../js/classie.js"></script>
+    <script src="../js/cbpAnimatedHeader.js"></script>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-62272037-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+
+</body>
+
+</html>
