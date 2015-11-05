@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>The Zen of Python: In Practice</title>
-    <link rel="image_src" href="http://i.imgur.com/LwZh4ju.png" / >
+    <title>Damage Control Blog</title>
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/freelancer.css" rel="stylesheet">
     <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -11,9 +10,6 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto:300' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/default.min.css">
     <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
-    <script src="js/signals.min.js"></script>
-    <script src="js/crossroads.js"></script>
-    <script src="js/routes.js"></script>
 </head>
 <body id="page-top" class="index">
     
@@ -67,30 +63,17 @@
         <!-- /.container-fluid -->
     </nav>
     
-    <div id = "content" class="blog-content">
+    <div id = "content" class="blog-content" style="display:none">
         <div class="row">
             <div class = "col-md-3 sidebar">
+                <br>
                 <h3>Older Blogs:</h3>
                 <hr>
                 <ul class="list-group">
-                    <a href="blog-9.html" class="side-links"><li class="list-group-item side-panel">Golang: First Look - (8/16/15)</li></a>
-                    <br>
-                    <a href="blog-8.html" class="side-links"><li class="list-group-item side-panel">The Gitflow Problem - (7/28/15)</li></a>
-                    <br>
-                    <a href="blog-7.html" class="side-links"><li class="list-group-item side-panel">DON'T TEACH YOUR KID SCRATCH! - (6/28/15)</li></a>
-                    <br>
-                    <a href="blog-6.html" class="side-links"><li class="list-group-item side-panel">What would Linus say? - (6/17/15)</li></a>
-                    <br>
-                    <a href="blog-5.html" class="side-links"><li class="list-group-item side-panel">3 DEFINITIVE WAYS TO MAKE YOUR PYTHON API BETTER - (5/28/15)</li></a>
-                    <br>
-                                                            <a href="blog-4.html" class="side-links"><li class="list-group-item side-panel">Those Django Forms Sat Me Down - (4/25/15)</li></a>
-<br>
-                                        <a href="blog-3.html" class="side-links"><li class="list-group-item side-panel">The Data Cowboys - (4/4/15)</li></a>
-                    <br>
-                    
-                    <a href="blog-2.html" class="side-links"><li class="list-group-item side-panel">Squashing the Big Bugs - (2/23/15)</li></a>
-                    <br>
-                    <a href="blog-1.html" class="side-links"><li class="list-group-item side-panel">Worst Programming Language - (2/12/15)</li></a>
+                    {% for blog in blogs %}
+                        <a href="/blog/#{{blog.shortname}}" class="side-links" onclick="window.location.reload()"><li class="list-group-item side-panel">{{blog.title}} - {{blog.date}}</li></a>
+                        <br>
+                    {% endfor %}
                 </ul>
                 <br>
                  <h3>Share It:</h3>
@@ -102,67 +85,14 @@
             </div>
             <div class = "col-md-6">
                 <div class = "page-header blog-post-header">
-                        <h2>The Zen of Python: In Practice</h2>
-                        <p class = "lead">(8/24/15)</p>
-                        <small>by Kirt Gittens</small>
+                        <h2>{{current_blog.title}}</h2>
+                        <p class = "lead">({{current_blog.date}})</p>
+                        <small>by {{current_blog.author}}</small>
                     <hr>
-                    <img src="../img/img5.png" class = "img-responsive" title="WWGS">
+                    <img src={{current_blog.img_link}} class = "img-responsive" title="WWGS">
                     <br>
                     <div class = "blog-post">
-                        <br>
-                        <p>
-When you review enough code, you start to see things. Terrifying things. The things that developers attempt to sneak by the gatekeeping duties of the code reviewer. These are the reasons why we have standards, so that before you commit a code atrocity (whether that be something like writing the nefarious line of code that is if len(array) > 0: or something as simple as forgetting to write documentation for a complicated function) standards offer you an opportunity to be slapped in the face before the atrocious mistake you've made makes it into a PR, or even worse, a master branch somewhere.</p>
-                        <br>
-                        <p>
-Everyone's got their own offcial standards of code quality that are specific to the language they use, (we have PEP8 over here in Python), but you can still commit a cardinal sin even if you follow the standards to the letter. This is where I like to invoke the wisdom of Tim Peters, and apply the knowledge he has imparted to us in the Zen of Python (you know it already, at least, you'd better. import this).
-                        </p>
-                        <br>
-                        <p>
-I've seen a few things recently that we do all the time, and they aren't exactly breaking PEP8 code standards, but still just generally make the code more difficult to understand. The thing that makes python great is readability, so making your code less readable for any purpose is a (at the least) suspicious move.
-                            </p>
-                        <br>
-                        <p>
-Let's review some code, shall we?
-                        </p>
-                        <br>
-                            <br>
-<blockquote>1. Readability Counts (even if it might require a bit more code)</blockquote>    
-<br>
-                        <pre><code class ="python">
-new_strings = [int(thing.split("-")[0])  - int(thing2.split("-")[0]) for thing1, thing2 in somedict.items() if "_parse_key" in somedict]
-</code>
-                        </pre>
-<br>
-<br>
-<p>
-List comprehensions are great ways to compose simple operations to populate an array with necessary values. No problems with using them, but I think after a certain point, if you try and combine too many operations, you might have less code (in terms of lines), but It'll be way more difficult to understand every you have to look at it, and explain to someone else what it's doing. I've seen comprehensions longer than this, and sure, they were at most 1,2 lines, but It gets pretty difficult to understand what the hell is going on in a meaningful way fairly quickly. Don't sacrifice readability and cleanliness for fewer lines of code.</p>
-                        <br>
-                        <br>
-                        <pre>
-<code class = "python">                   
-new_strings = []
-for thing1, thing2 in somedict.items():
-
-	if "_parse_key" in somedict:
-
-		# get a first number from the input
-		num1 = int(thing.split("-")[0])
-		num2 = int(thing2.split("0")[0])
-		
-		# subtract the result
-		new_strings.append(num1-num2)
-</code>
-</pre>
-                        <br>
-                        <br>
-                        <blockquote>2. Errors should never pass silently (NOT EVEN ONCE)</blockquote>
-                        <p> A lot of times, I've been forced to code things that break this rule due to buisness requirements, but if you have the freedom to make such a decision, don't let your application keep going when something atrocious happens. dict.get or getattr, are both tools that end up getting used to silence errors (and not that they're ever invalid solutions, but there's cases where they're used to continue the workflow when your application is missing data that it needs), instead of actually throwing a KeyError or AttributeError, we use one of these methods, and suppress the issue by returning None, or simply having our functions do nothing or ignore the apparent issue. There's a valid philosophy of never wanting to interrupt the user experience (and there's a whole other conversation that we can dive into about how present these kinds of issues to the user), but from a pure code perspective, doing this makes debugging nearly impossible. If you suppress the actual code issues, when deeper problems appear, doing a root cause analysis becomes difficult, and finding the real issue become nearly impossible.
-                        </p>
-                       <small>~ishygddt</small>
-                        <br>
-<button class = "btn btn-primary btn-large" onclick="window.location='blog-9.html'">Previous Blog</button>
-		
-                
+                        {{current_blog.post}}
                     </div>
                 </div>
                 
@@ -175,17 +105,9 @@ for thing1, thing2 in somedict.items():
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
     <script src="../js/classie.js"></script>
     <script src="../js/cbpAnimatedHeader.js"></script>
+    <script src="../js/nunjucks.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-      ga('create', 'UA-62272037-1', 'auto');
-      ga('send', 'pageview');
-
-    </script>
+    <script src="../js/whitesmoke.js"></script>
 
 </body>
 
